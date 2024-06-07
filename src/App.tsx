@@ -1,8 +1,8 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Button, Space } from "antd";
-import "./App.css";
+import {useState} from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import {Button, Space} from 'antd';
+import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,16 +24,10 @@ function App() {
         {/*</button>*/}
         <p>count is {count}</p>
         <Space size={12}>
-          <Button
-            type={"primary"}
-            onClick={() => setCount((count) => count + 1)}
-          >
+          <Button type={'primary'} onClick={() => setCount((count) => count + 1)}>
             加一
           </Button>
-          <Button
-            type={"primary"}
-            onClick={() => setCount((count) => count - 1)}
-          >
+          <Button type={'primary'} onClick={() => setCount((count) => count - 1)}>
             减一
           </Button>
         </Space>
