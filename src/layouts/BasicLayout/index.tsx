@@ -1,6 +1,10 @@
-import React from 'react';
-import {ProLayout} from '@ant-design/pro-components';
+import { ProLayout } from '@ant-design/pro-components';
+import { Outlet } from 'react-router-dom';
 
-export function BasicLayout(props: {children: React.ReactNode}) {
-  return <ProLayout layout={'mix'}>{props.children}</ProLayout>;
+export function BasicLayout() {
+  return (
+    <ProLayout layout={'mix'}>
+      <Outlet />
+    </ProLayout>
+  );
 }

@@ -1,14 +1,13 @@
-import {ConfigProvider, App as AntdApp} from 'antd';
-import {BasicLayout} from '@/layouts/BasicLayout';
-import Welcome from '@/pages/welcome';
+import { App as AntdApp, ConfigProvider } from 'antd';
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from '@/router';
 
 function App() {
   return (
     <ConfigProvider>
       <AntdApp>
-        <BasicLayout>
-          <Welcome />
-        </BasicLayout>
+        <RouterProvider router={router} />
       </AntdApp>
     </ConfigProvider>
   );

@@ -9,9 +9,13 @@ const config = {
   semi: true,
   singleQuote: true,
   jsxSingleQuote: false,
-  bracketSpacing: false,
+  bracketSpacing: true,
   printWidth: 120,
   endOfLine: 'lf',
+  importOrder: ['<THIRD_PARTY_MODULES>', '^@/(.*)$', '^[./]'],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
+  plugins: ['@trivago/prettier-plugin-sort-imports'],
 };
 
 module.exports = config;
