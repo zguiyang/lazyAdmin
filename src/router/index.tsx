@@ -1,18 +1,27 @@
+import type { RouteObject } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { AuthLayout } from '@/layouts/AuthLayout';
 import { BasicLayout } from '@/layouts/BasicLayout';
-import LoginPage from '@/pages/login';
-import WelcomePage from '@/pages/welcome';
 
-export const router = createBrowserRouter([
+import { lazyElementLoader } from './utils.tsx';
+
+export const routes: RouteObject[] = [
   {
     path: '/',
     element: <BasicLayout />,
     children: [
       {
         index: true,
-        element: <WelcomePage />,
+        element: lazyElementLoader(() => import('@/pages/dashboard')),
+      },
+      {
+        path: 'user',
+        element: lazyElementLoader(() => import('@/pages/user')),
+      },
+      {
+        path: 'role',
+        element: lazyElementLoader(() => import('@/pages/roles')),
       },
     ],
   },
@@ -22,8 +31,10 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'login',
-        element: <LoginPage />,
+        element: lazyElementLoader(() => import('@/pages/login')),
       },
     ],
   },
-]);
+];
+
+export default createBrowserRouter([...routes]);

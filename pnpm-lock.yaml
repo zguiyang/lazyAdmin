@@ -7,12 +7,18 @@ settings:
 importers:
   .:
     dependencies:
+      '@ant-design/icons':
+        specifier: ^5.3.7
+        version: 5.3.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-components':
         specifier: ^2.7.10
         version: 2.7.10(antd@5.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       antd:
         specifier: ^5.18.0
         version: 5.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      radash:
+        specifier: ^12.1.0
+        version: 12.1.0
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -2490,6 +2496,11 @@ packages:
   queue-microtask@1.2.3:
     resolution:
       { integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A== }
+
+  radash@12.1.0:
+    resolution:
+      { integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ== }
+    engines: { node: '>=14.18.0' }
 
   rc-cascader@3.26.0:
     resolution:
@@ -5490,6 +5501,8 @@ snapshots:
       react: 18.3.1
 
   queue-microtask@1.2.3: {}
+
+  radash@12.1.0: {}
 
   rc-cascader@3.26.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

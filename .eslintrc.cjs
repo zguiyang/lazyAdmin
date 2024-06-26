@@ -13,7 +13,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'prettier/prettier': ['error'],
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    /** my custom rules **/
+    'react-refresh/only-export-components': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

@@ -15,8 +15,10 @@
     "cz": "cz"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@ant-design/pro-components": "^2.7.10",
     "antd": "^5.18.0",
+    "radash": "^12.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.23.1",
