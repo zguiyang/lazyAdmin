@@ -1,0 +1,25 @@
+//.basic-layout-header {
+//  @apply flex justify-between items-center;
+//  .header-left {
+//    flex-shrink: 0;
+//  }
+//  .header-center {
+//    @apply pl-6 pr-6 flex-auto;
+//    flex-shrink: 1;
+//  }
+//}
+.basic-layout {
+  height: 100vh;
+}
+.basic-layout-sidebar {
+}
+.basic-layout-logo-wrapper {
+  @apply flex items-center justify-center space-x-4;
+  padding: 50px 0;
+}
+.basic-layout-menu-wrapper {
+  @apply relative;
+}
+.basic-layout-container {
+  padding: 32px 24px 0;
+}
