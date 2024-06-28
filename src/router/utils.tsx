@@ -1,3 +1,4 @@
+import { PageLoading } from '@ant-design/pro-components';
 import { isFunction } from 'radash';
 import { Suspense, lazy } from 'react';
 
@@ -5,7 +6,7 @@ export function lazyElementLoader(importFn: () => any) {
   if (isFunction(importFn)) {
     const LazyComponent = lazy(importFn);
     return (
-      <Suspense fallback={<div>Loading Page...</div>}>
+      <Suspense fallback={<PageLoading />}>
         <LazyComponent />
       </Suspense>
     );

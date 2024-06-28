@@ -8,15 +8,25 @@ export const menuRoutes: Omit<MenuDataItem, 'routes'>[] = [
     icon: <HomeFilled />,
   },
   {
-    path: '/user',
-    key: 'user',
+    path: '/users',
     icon: <UserOutlined />,
     name: '用户管理',
+    children: [
+      {
+        path: '/users/list',
+        name: '用户列表',
+      },
+    ],
   },
   {
-    path: '/role',
-    key: 'role',
+    path: '/roles',
     icon: <UserOutlined />,
     name: '角色管理',
+    children: [
+      {
+        path: '/roles/list',
+        name: '角色列表',
+      },
+    ],
   },
 ];

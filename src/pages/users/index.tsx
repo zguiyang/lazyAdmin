@@ -1,7 +1,7 @@
 export default function UserPage() {
   return (
-    <div className={'user-page'}>
-      <h1>User Page</h1>
+    <div className={'users-page'}>
+      <h1>用户列表</h1>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import type { RouteObject } from 'react-router';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 
 import { AuthLayout } from '@/layouts/AuthLayout';
 import { BasicLayout } from '@/layouts/BasicLayout';
@@ -16,11 +16,19 @@ export const routes: RouteObject[] = [
         element: lazyElementLoader(() => import('@/pages/dashboard')),
       },
       {
-        path: 'user',
-        element: lazyElementLoader(() => import('@/pages/user')),
+        path: 'users',
+        loader: () => redirect('/users/list'),
       },
       {
-        path: 'role',
+        path: 'users/list',
+        element: lazyElementLoader(() => import('@/pages/users')),
+      },
+      {
+        path: 'roles',
+        loader: () => redirect('/roles/list'),
+      },
+      {
+        path: 'roles/list',
         element: lazyElementLoader(() => import('@/pages/roles')),
       },
     ],
