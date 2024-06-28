@@ -5,6 +5,6 @@ const config = {
   rules: {
     'prettier/prettier': true,
   },
-  ignoreAtRules: ['apply', 'layer', 'responsive', 'screen', '@tailwind', 'variants'],
+  ignoreFiles: ['./src/styles/tailwind.css'],
 };
 module.exports = config;
