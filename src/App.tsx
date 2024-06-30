@@ -5,7 +5,19 @@ import router from '@/router';
 
 function App() {
   return (
-    <ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Layout: {
+            headerHeight: 32,
+          },
+          Menu: {
+            iconSize: 18,
+            collapsedIconSize: 18,
+          },
+        },
+      }}
+    >
       <AntdApp>
         <RouterProvider router={router} />
       </AntdApp>

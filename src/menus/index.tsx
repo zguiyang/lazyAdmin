@@ -1,31 +1,35 @@
-import { HomeFilled, UserOutlined } from '@ant-design/icons';
-import type { MenuDataItem } from '@ant-design/pro-components';
+import { HomeOutlined, UserOutlined, UserSwitchOutlined } from '@ant-design/icons';
 
-export const menuRoutes: Omit<MenuDataItem, 'routes'>[] = [
+import type { MenuItem } from './types.ts';
+
+export * from './types.ts';
+export * from './utils.ts';
+
+export const menuList: MenuItem[] = [
   {
-    path: '/',
-    name: '仪表盘',
-    icon: <HomeFilled />,
+    key: '/',
+    label: '仪表盘',
+    icon: <HomeOutlined />,
   },
   {
-    path: '/users',
+    key: '/users',
     icon: <UserOutlined />,
-    name: '用户管理',
+    label: '用户管理',
     children: [
       {
-        path: '/users/list',
-        name: '用户列表',
+        key: '/users/list',
+        label: '用户列表',
       },
     ],
   },
   {
-    path: '/roles',
-    icon: <UserOutlined />,
-    name: '角色管理',
+    key: '/roles',
+    icon: <UserSwitchOutlined />,
+    label: '角色管理',
     children: [
       {
-        path: '/roles/list',
-        name: '角色列表',
+        key: '/roles/list',
+        label: '角色列表',
       },
     ],
   },

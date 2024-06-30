@@ -1,18 +1,22 @@
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
-import { Button, Layout, Menu } from 'antd';
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { LeftOutlined, LogoutOutlined, RightOutlined } from '@ant-design/icons';
+import { Avatar, Button, Layout, Menu, Space, Typography } from 'antd';
+import { useEffect, useState } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+
+import { findKeyPath, menuList } from '@/menus';
 
 const { Sider, Content, Footer } = Layout;
 
 export function BasicLayout() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
+  const [selectedKey, setSelectedKey] = useState(location.pathname);
+
+  useEffect(() => {
+    setSelectedKey(location.pathname);
+  }, [location.pathname]);
+
   return (
     <Layout className={'basic-layout'} hasSider={true}>
       <Sider
@@ -23,6 +27,9 @@ export function BasicLayout() {
         className={'basic-layout-sidebar'}
         theme={'light'}
       >
+        <div className={'basic-sidebar-trigger-button'} onClick={() => setCollapsed(!collapsed)}>
+          {collapsed ? <RightOutlined style={{ fontSize: '16px' }} /> : <LeftOutlined style={{ fontSize: '16px' }} />}
+        </div>
         <div className={'basic-layout-logo-wrapper'}>
           <img
             width={36}
@@ -30,63 +37,42 @@ export function BasicLayout() {
             src={'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'}
             alt={'logo'}
           />
-          <h1 className={'m-0 text-[24px]'}>Lazy Admin</h1>
+          {!collapsed ? <h1 className={'m-0 text-[24px]'}>Lazy Admin</h1> : null}
         </div>
         <div className={'basic-layout-menu-wrapper'}>
           <Menu
+            selectedKeys={[selectedKey]}
+            defaultOpenKeys={findKeyPath(menuList, selectedKey)}
+            style={{ fontSize: '16px' }}
             theme={'light'}
-            items={[
-              {
-                key: '1',
-                icon: <UserOutlined />,
-                label: 'nav 1',
-              },
-              {
-                key: '2',
-                icon: <VideoCameraOutlined />,
-                label: 'nav 2',
-              },
-              {
-                key: '3',
-                icon: <UploadOutlined />,
-                label: 'nav 3',
-              },
-            ]}
+            items={menuList}
+            mode={'inline'}
+            onClick={({ key }) => {
+              navigate(key);
+            }}
           />
         </div>
-        <div className={'basic-sidebar-trigger-wrapper'}>
-          <Button
-            type={'text'}
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-          />
+        <div className={'basic-sidebar-user-wrapper'}>
+          <Space size={12}>
+            <Avatar
+              style={{ backgroundColor: '#f56a00' }}
+              src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
+              shape={'square'}
+              size={'large'}
+            />
+            <div className={'flex flex-col text-left'}>
+              <Typography.Text strong ellipsis={{ tooltip: true }}>
+                Joy Zhao
+              </Typography.Text>
+              <Typography.Text type={'secondary'}>Admin</Typography.Text>
+            </div>
+          </Space>
+          <div>
+            <Button type={'text'} icon={<LogoutOutlined />}></Button>
+          </div>
         </div>
       </Sider>
       <Layout className={'basic-layout-container'}>
-        {/* <Header className={'basic-layout-header'} style={{ backgroundColor: colorBgContainer, paddingLeft: 0 }}>
-          <div className={'header-left'}>
-            <Space size={0}>
-              <Button
-                style={{
-                  fontSize: '14px',
-                  width: 48,
-                  height: 64,
-                }}
-                type={'text'}
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => setCollapsed(!collapsed)}
-              ></Button>
-              <Button
-                type={'text'}
-                icon={<ReloadOutlined />}
-                onClick={() => window.location.reload()}
-                style={{ fontSize: '14px', width: 48, height: 64 }}
-              ></Button>
-            </Space>
-          </div>
-          <div className={'header-center'}>中间内容区域</div>
-          <div className={'header-right'}>右侧区域</div>
-        </Header>*/}
         <Content className={'basic-layout-main'}>
           <Outlet />
         </Content>
