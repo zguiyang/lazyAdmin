@@ -24,3 +24,19 @@ export function findKeyPath(menu: MenuItem[], key: string): string[] {
   dfs(menu, key, []);
   return path.length > 0 ? path : [];
 }
+
+// 查找菜单项方法
+export function findMenuItem(menu: MenuItem[], key: string): MenuItem | null {
+  for (const item of menu) {
+    if (item.key === key) {
+      return item;
+    }
+    if (item.children) {
+      const found = findMenuItem(item.children, key);
+      if (found) {
+        return found;
+      }
+    }
+  }
+  return null;
+}

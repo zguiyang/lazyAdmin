@@ -1,3 +1,9 @@
+import PageTitle from '@/components/PageTitle';
+
 export default function RolesPage() {
-  return <div>Roles Page</div>;
+  return (
+    <div className={'roles-page'}>
+      <PageTitle />
+    </div>
+  );
 }
