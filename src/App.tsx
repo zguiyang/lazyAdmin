@@ -9,6 +9,9 @@ function App() {
       theme={{
         token: {
           colorPrimary: '#605BFF',
+          colorLink: '#605BFF',
+          colorLinkActive: '#605BFF',
+          colorLinkHover: '#8B5FBF',
         },
         components: {
           Layout: {
