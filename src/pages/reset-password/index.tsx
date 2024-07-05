@@ -2,7 +2,7 @@ import { Avatar, Button, Form, Input, Space, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import logoImg from '@/assets/logo.svg';
-import manRegisterImg from '@/assets/man-register.svg';
+import resetPsdImg from '@/assets/reset-psd.svg';
 import { setUserToken } from '@/helper/auth';
 
 import styles from './styles.module.scss';
@@ -35,7 +35,7 @@ export default function ResetPasswordPage() {
           <h1 className={'text-2xl font-bold'}>Lazy Admin</h1>
         </div>
         <div className={styles.thumbImage}>
-          <img src={manRegisterImg} alt="login-bg" />
+          <img src={resetPsdImg} alt="login-bg" />
         </div>
       </div>
       <div className={styles.resetPsdContent}>
