@@ -3,6 +3,8 @@ import { Avatar, Button, Layout, Menu, Space, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
+import Logo from '@/assets/logo.svg';
+import { removeUserToken } from '@/helper/auth';
 import { findKeyPath, menuList } from '@/menus';
 
 const { Sider, Content, Footer } = Layout;
@@ -12,6 +14,11 @@ export function BasicLayout() {
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
   const [selectedKey, setSelectedKey] = useState(location.pathname);
+
+  async function handleLogout() {
+    await removeUserToken();
+    navigate('/auth/login');
+  }
 
   useEffect(() => {
     setSelectedKey(location.pathname);
@@ -31,12 +38,7 @@ export function BasicLayout() {
           {collapsed ? <RightOutlined style={{ fontSize: '16px' }} /> : <LeftOutlined style={{ fontSize: '16px' }} />}
         </div>
         <div className={'basic-layout-logo-wrapper'}>
-          <img
-            width={36}
-            height={36}
-            src={'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'}
-            alt={'logo'}
-          />
+          <img width={32} height={32} src={Logo} alt={'logo'} />
           {!collapsed ? <h1 className={'m-0 text-[24px]'}>Lazy Admin</h1> : null}
         </div>
         <div className={'basic-layout-menu-wrapper'}>
@@ -68,7 +70,7 @@ export function BasicLayout() {
             </div>
           </Space>
           <div>
-            <Button type={'text'} icon={<LogoutOutlined />}></Button>
+            <Button type={'text'} icon={<LogoutOutlined />} onClick={handleLogout}></Button>
           </div>
         </div>
       </Sider>
