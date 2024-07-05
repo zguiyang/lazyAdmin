@@ -4,12 +4,13 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 import { AuthLayout } from '@/layouts/AuthLayout';
 import { BasicLayout } from '@/layouts/BasicLayout';
 
-import { lazyElementLoader } from './utils.tsx';
+import { authLoader, basicAuthLoader, lazyElementLoader } from './utils.tsx';
 
 export const routes: RouteObject[] = [
   {
     path: '/',
     element: <BasicLayout />,
+    loader: basicAuthLoader,
     children: [
       {
         index: true,
@@ -36,6 +37,7 @@ export const routes: RouteObject[] = [
   {
     path: 'auth',
     element: <AuthLayout />,
+    loader: authLoader,
     children: [
       {
         path: 'login',
