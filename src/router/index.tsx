@@ -47,6 +47,10 @@ export const routes: RouteObject[] = [
         path: 'register',
         element: lazyElementLoader(() => import('@/pages/register')),
       },
+      {
+        path: 'forgot-password',
+        element: lazyElementLoader(() => import('@/pages/forgot-password')),
+      },
     ],
   },
 ];
