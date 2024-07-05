@@ -43,6 +43,10 @@ export const routes: RouteObject[] = [
         path: 'login',
         element: lazyElementLoader(() => import('@/pages/login')),
       },
+      {
+        path: 'register',
+        element: lazyElementLoader(() => import('@/pages/register')),
+      },
     ],
   },
 ];
