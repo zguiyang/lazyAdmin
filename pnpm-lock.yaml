@@ -16,6 +16,9 @@ importers:
       antd:
         specifier: ^5.18.0
         version: 5.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      localforage:
+        specifier: ^1.10.0
+        version: 1.10.0
       radash:
         specifier: ^12.1.0
         version: 12.1.0
@@ -1983,6 +1986,10 @@ packages:
       { integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw== }
     engines: { node: '>= 4' }
 
+  immediate@3.0.6:
+    resolution:
+      { integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ== }
+
   immutable@4.3.6:
     resolution:
       { integrity: sha512-Ju0+lEMyzMVZarkTn/gqRpdqd5dOPaz1mCZ0SH3JV6iFw81PldE/PEB1hWVEA288HPt4WXW8O7AWxB10M+03QQ== }
@@ -2202,6 +2209,10 @@ packages:
       { integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ== }
     engines: { node: '>= 0.8.0' }
 
+  lie@3.1.1:
+    resolution:
+      { integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw== }
+
   lilconfig@2.1.0:
     resolution:
       { integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ== }
@@ -2226,6 +2237,10 @@ packages:
     resolution:
       { integrity: sha512-irTfvpib/rNiD637xeevjO2l3Z5loZmuaRi0L0YE5LfijwVY96oyVn0DFD3o/teAok7nfobMG1THvvcHh/BP6g== }
     engines: { node: '>=18.0.0' }
+
+  localforage@1.10.0:
+    resolution:
+      { integrity: sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg== }
 
   locate-path@6.0.0:
     resolution:
@@ -5403,6 +5418,8 @@ snapshots:
 
   ignore@5.3.1: {}
 
+  immediate@3.0.6: {}
+
   immutable@4.3.6: {}
 
   import-fresh@3.3.0:
@@ -5546,6 +5563,10 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
+  lie@3.1.1:
+    dependencies:
+      immediate: 3.0.6
+
   lilconfig@2.1.0: {}
 
   lilconfig@3.1.1: {}
@@ -5575,6 +5596,10 @@ snapshots:
       log-update: 6.0.0
       rfdc: 1.3.1
       wrap-ansi: 9.0.0
+
+  localforage@1.10.0:
+    dependencies:
+      lie: 3.1.1
 
   locate-path@6.0.0:
     dependencies:
