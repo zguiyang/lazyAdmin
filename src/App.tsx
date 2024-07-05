@@ -7,6 +7,9 @@ function App() {
   return (
     <ConfigProvider
       theme={{
+        token: {
+          colorPrimary: '#605BFF',
+        },
         components: {
           Layout: {
             headerHeight: 32,
